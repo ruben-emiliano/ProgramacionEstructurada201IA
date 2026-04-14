@@ -55,5 +55,5 @@ def ejecutar_pipeline():
      stats = obtener_estadisticas(datos_finales)
  generar_reporte(cuenta_total, len(datos_finales), stats)
 if __name__ == "__main__":
-    ejecutar_pipeline
+    ejecutar_pipeline()
     
