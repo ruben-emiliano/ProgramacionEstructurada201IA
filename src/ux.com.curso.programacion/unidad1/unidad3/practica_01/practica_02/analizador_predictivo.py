@@ -15,29 +15,54 @@ def limpiar_dato(lectura):
 
 
 def calcular_alerta(valor_normalizado):
- """
- FUNCIÓN 2: Recibe el valor (0.0 a 1.0).
- Devuelve 'CRÍTICO' si es > 0.8, 'PRECAUCIÓN' si es > 0.5,
- y 'NORMAL' en cualquier otro caso.
- """
- # IMPLEMENTAR AQUÍ
- pass
+    """
+    FUNCIÓN 2: Recibe el valor (0.0 a 1.0).
+    Devuelve 'CRÍTICO' si es > 0.8, 'PRECAUCIÓN' si es > 0.5,
+    y 'NORMAL' en cualquier otro caso.
+    """
+    # IMPLEMENTAR AQUÍ
+    if valor_normalizado>0.8:
+        return 'critico'
+    elif valor_normalizado > 0.5:
+        return'precaucion'
+    else:
+        return'normal'
+ 
 
 
 def obtener_estadisticas(lista_datos):
- """
- FUNCIÓN 3: Recibe la lista de datos válidos.
- Devuelve una TUPLA con: (Valor máximo, Valor mínimo, Promedio).
- """
- # IMPLEMENTAR AQUÍ
- pass
+    """
+    FUNCIÓN 3: Recibe la lista de datos válidos.
+    Devuelve una TUPLA con: (Valor máximo, Valor mínimo, Promedio).
+    """
+    # IMPLEMENTAR AQUÍ
+    if not lista_datos:
+        return(0, 0, 0)
+    
+    maximo = max(lista_datos)
+    miinimo = min(lista_datos)
+    promedio = sum(lista_datos)/ len (lista_datos)
+
+ 
 
 def generar_reporte(total_datos, validos, estadisticas):
- """
- FUNCIÓN 4: Imprime un resumen formateado de los resultados.
- """
- # IMPLEMENTAR AQUÍ
- pass
+    """
+    FUNCIÓN 4: Imprime un resumen formateado de los resultados.
+    """
+    v_max, v_min, v_prom = estadisticas
+    descartados =total_datos - validos
+
+    #IMPLEMENTAR AQUI
+    print("*" * 30)
+    print("REPORTE DE ANILISIS PREDECTIVO")
+    print("*" * 30)
+    print(f"Total de lecturas prcesadas: {total_datos}")
+    print(f"Lecturas válidas: {validos}")
+    print(f"Lecturas descartadas: {descartados}")
+    print(f"Valor máximo: {v_max}")
+    print(f"Valor mínimo: {v_min}")
+    print(f"Promedio: {promedio}")
+    print("*" * 30)
 # --- LÓGICA PRINCIPAL (NO MODIFICAR ESTA PARTE) ---
 def ejecutar_pipeline():
  datos_finales = []
